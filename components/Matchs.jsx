@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Image, Text, Alert, ScrollView, StyleSheet, Dimensions } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import getAllMatchsThunk from '../redux/thunks/matchsThunk';
-// import { LinearGradient } from 'react-native-linear-gradient';
 
 
 const width = Dimensions.get('screen').width
@@ -13,38 +11,39 @@ const Matchs = ({ navigation, matches, getAllMatches }) => {
 
   const dispatch = useDispatch();
 
-  const { data, loading } = useSelector(state => state.Matchs)
+  const { data } = useSelector(state => state.Matchs.data)
 
-  console.log(data)
+
 
 
   useEffect(() => {
     dispatch(getAllMatchsThunk())
-
   }, [dispatch])
 
 
   return (
 
-    
-    
-      <View style={styles.container}>
+    <ScrollView horizontal={true}>
+      {data?.map((match, index) => (
 
-        <View style={styles.phase_one}>
+        <View key={index} style={styles.container}>
 
+          <View style={styles.phase_one}>
+            <Text>            {match.name}
+            </Text>
+            
+          </View>
+
+          <View style={styles.phase_two}>
+            <Text style={styles.Number}>28</Text>
+            <Text style={styles.horizontalName}>December</Text>
+          </View>
 
         </View>
+      ))}
+    </ScrollView>
 
-        <View style={styles.phase_two}>
-          <Text style={styles.Number}>28</Text>
-          <Text style={styles.horizontalName}>December</Text>
-        </View>
-
-      </View>
-    
-
-
-
+  
 
   );
 

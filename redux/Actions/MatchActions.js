@@ -1,11 +1,16 @@
-import { GET_ALL_MATCHS} from '../types';
+import { GET_ALL_MATCHS,GET_ALL_PLAYERS} from '../types';
 
 
 
 
-export const getAllMatches = (match) => ({
+export const getAllMatches = (data) => ({
   type: GET_ALL_MATCHS,
-  payload: match,
+  payload: data,
 });
 
+
+export const getAllPlayers = (data) => ({
+  type: GET_ALL_PLAYERS,
+  payload: data,
+});
  

@@ -4,7 +4,8 @@ import matchsReducer from './Reducers/MatchReducer'
 
 
 const rootReducer = combineReducers({
-    Matchs: matchsReducer
+    Matchs: matchsReducer,
+    Players: matchsReducer
   });
 
 

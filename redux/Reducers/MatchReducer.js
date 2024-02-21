@@ -1,8 +1,9 @@
-import {GET_ALL_MATCHS} from '../types'
+import {GET_ALL_MATCHS,GET_ALL_PLAYERS} from '../types'
 
 
 const initialState = {
-    Matchs: [],
+    data: [],
+    error: null,
   };
   
   const matchsReducer = (state = initialState, action) => {
@@ -10,7 +11,14 @@ const initialState = {
       case GET_ALL_MATCHS:
         return {
           ...state,
-          Matchs: action.payload,
+          data: action.payload,
+          error: null,
+        };
+        case GET_ALL_PLAYERS:
+        return {
+          ...state,
+          data: action.payload,
+          error: null,
         };
       default:
         return state;
