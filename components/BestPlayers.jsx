@@ -11,7 +11,7 @@ const BestPlayers = () => {
 
     const { data } = useSelector(state => state.Players.data)
 
-console.log('playerData',data);
+// console.log('playerData',data);
 
     useEffect(() => {
         dispatch(getAllPlayersThunk())
@@ -22,7 +22,7 @@ console.log('playerData',data);
         <ScrollView horizontal={true}>
             {data?.map((player, index) => (
                 <View key={index} style={styles.BestTeams}>
-                    
+
                     <Image style={styles.Image} source={{ uri: player.image_path }} />
                 </View>
             ))}

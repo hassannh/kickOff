@@ -12,11 +12,11 @@ const Cover = () => {
           <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
             <View style={styles.text}>
               <Text style={{ fontSize: 18, marginBottom: 7, backgroundColor: 'white', width: 80, paddingLeft: 7, borderRadius: 3 }}>FootBall</Text>
-              <Text style={{ fontSize: 15 ,color:'white'}}>Zidan and Real Madrid win champions league for the 14th.</Text>
+              <Text style={{ fontSize: 15 ,color:'white'}}>Ziyech and chelsea Looking For champions leage.</Text>
             </View>
             <Image
               style={styles.image}
-              source={require('../assets/Zidane.png')}
+              source={require('../assets/Ziyech.png')}
             />
           </LinearGradient>
         </TouchableOpacity>
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     //   marginRight: 16,
     },
     image: {
-      width: 150,
-      height: 150,
+      width: 120,
+      height: 170,
       resizeMode: 'cover',
       borderRadius: 5,
     },

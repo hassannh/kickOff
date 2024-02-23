@@ -1,32 +1,43 @@
 import { View, Text, Image, ScrollView, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
-import { Searchbar } from 'react-native-paper';
 import Player from '../components/Player';
+import SearchInput from '../components/SearchInput';
+import getAllPlayersThunk from '../redux/thunks/playersThunk';
 
 
 export default function Players() {
 
-    const [searchQuery, setSearchQuery] = React.useState('');
+    const dispatch = useDispatch();
+    const [searchQuery, setSearchQuery] = useState('');
+    const { data } = useSelector((state) => state.Players.data);
+
+
+
+    useEffect(() => {
+        dispatch(getAllPlayersThunk());
+    }, [dispatch]);
+
+
+    const filteredData = data.filter((player) =>
+        player.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
 
         <>
-            <View style={{ flex: 1, backgroundColor: '#1F1D2B' }}>
-
-                <Searchbar
-                style={{ marginTop:70 }}
-                    placeholder="Search"
-                    onChangeText={setSearchQuery}
-                    value={searchQuery}
-                />
-
-                <View style={styles.player}>
-                    <Player/>
-                </View>
-            </View>
+            {/* <View style={{ backgroundColor: '#1F1D2B' }}> */}
+            <ScrollView style={{ backgroundColor: '#1F1D2B' }}>
+                <SearchInput setSearchQuery={setSearchQuery} />
 
 
+                <Player data={filteredData} />
+
+            </ScrollView>
+
+
+            {/* </View> */}
 
 
         </>
@@ -38,10 +49,8 @@ export default function Players() {
 const styles = StyleSheet.create({
 
     player: {
-        display:'flex',
-        // flexWrap:'wrap',
-        backgroundColor:'white',
-        // gap:3,
-        // border:1,
-    }
+        display: 'flex',
+        flexDirection: 'row',
+    },
+
 })

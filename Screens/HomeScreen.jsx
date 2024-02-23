@@ -4,7 +4,7 @@ import Matchs from '../components/Matchs';
 import Cover from '../components/Cover';
 import BestTeams from '../components/BestPlayers';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <>
 
@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
         <View style={{marginBottom:60}}>
 
-          <Matchs />
+          <Matchs navigation={navigation}/>
           
           
         </View>
