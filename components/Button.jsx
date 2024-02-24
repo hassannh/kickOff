@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       width: 240,
       height: 50,
-      marginLeft:60,
+      marginLeft:20,
     },
     buttonText: {
       color: 'white',

@@ -1,30 +1,38 @@
-import { View, Text, StyleSheet, Image,ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import getAllPlayersThunk from '../redux/thunks/playersThunk';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 
 
 const BestPlayers = () => {
-
+    const navigation = useNavigation();
     const dispatch = useDispatch();
 
-    const { data } = useSelector(state => state.Players.data)
+    const data = useSelector(state => state.players)
 
-// console.log('playerData',data);
 
     useEffect(() => {
         dispatch(getAllPlayersThunk())
     }, [dispatch])
 
 
+    const handleShowDetails = (player) => {
+        navigation.navigate('playerdetail', { player })
+    }
+
+
     return (
         <ScrollView horizontal={true}>
             {data?.map((player, index) => (
-                <View key={index} style={styles.BestTeams}>
-
-                    <Image style={styles.Image} source={{ uri: player.image_path }} />
-                </View>
+                <TouchableOpacity onPress={() => handleShowDetails(player)}>
+                    <View key={index} style={styles.BestTeams}>
+                        <Image style={styles.Image} source={{ uri: player.player_picture }} />
+                    </View>
+                </TouchableOpacity>
             ))}
 
         </ScrollView>
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
     Image: {
         width: 73,
         height: 73,
-        borderRadius:50,
+        borderRadius: 50,
     }
 
 

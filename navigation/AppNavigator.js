@@ -16,27 +16,27 @@ const AppNavigator = () => (
 
 
     <Tab.Navigator
-        activeColor="#6C5ECF"
         screenOptions={() => ({
             headerShown: false,
             tabBarStyle: {
                 height: 70,
                 paddingHorizontal: 5,
                 backgroundColor: '#252836',
-                
+
             },
         })}
         tabBarOptions={{
             showLabel: false,
-            tabBarActiveTintColor: '#6C5ECF',
+            activeTintColor: 'red', 
+            inactiveTintColor: 'gray',
 
         }}
 
     >
         <Tab.Screen name="Home" component={HomeScreen}
             options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name="home" size={40} color={'#464857'} />
+                tabBarIcon: ({ color, size , focused }) => (
+                    <Icon name="home" size={40} color={focused ? '#6C5ECF' : '#464857'} />
                 ),
             }}
             tabBarOptions={{
@@ -48,23 +48,22 @@ const AppNavigator = () => (
             sceneContainerStyle={{ backgroundColor: '#1F1D2B' }}
 
             options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name="people" size={40} color={'#464857'} />
+                tabBarIcon: ({ color, size ,focused}) => (
+                    <Icon name="people" size={40} color={focused ? '#6C5ECF' : '#464857'} />
                 )
             }}
         />
-        <Tab.Screen name="Profil" component={ProfileScreen}
+        <Tab.Screen name="favorite" component={ProfileScreen}
             options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name="person" size={40} color={'#464857'} />
+                tabBarIcon: ({ color, size ,focused}) => (
+                    <Icon name="favorite" size={40} color={focused ? '#6C5ECF' : '#464857'} />
                 ),
-
             }}
         />
         <Tab.Screen name="Setting" component={SettingsScreen}
             options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name="settings" size={40} color={'#464857'} />
+                tabBarIcon: ({ color, size ,focused}) => (
+                    <Icon name="settings" size={40} color={focused ? '#6C5ECF' : '#464857'} />
                 ),
             }}
         />

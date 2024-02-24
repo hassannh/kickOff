@@ -1,21 +1,16 @@
 import { View, Text } from 'react-native'
 import axios from 'axios';
-import { getAllPlayers } from '../Actions/MatchActions';
+import { getAllPlayers } from '../Actions/PlayerAction';
 
 
 
 
 const getAllPlayersThunk = () => async (dispatch) => {
     try {
-        const authToken = 'N3eCJzEkfseIrVV0Ec7zohovsV6coLCqYEUdVR1Cbq1L33fwwhk83mzqqLmX';
-        const response = await axios.get("https://api.sportmonks.com/v3/football/players",{
-            headers: {
-                Authorization : authToken,
-            },
-        })
+        // const authToken = 'N3eCJzEkfseIrVV0Ec7zohovsV6coLCqYEUdVR1Cbq1L33fwwhk83mzqqLmX';
+        const response = await axios.get("https://www.footballtransfers.com/en/players/actions/overview/overview")
 
         const data = response.data;
-        console.log('players :',data);
 
         if (data) {
             dispatch(getAllPlayers(data));

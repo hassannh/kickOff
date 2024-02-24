@@ -3,27 +3,25 @@ import { View, Image, Text, Alert, ScrollView, StyleSheet, Dimensions, Touchable
 import { useDispatch, useSelector } from 'react-redux';
 import getAllMatchsThunk from '../redux/thunks/matchsThunk';
 import MatchCard from './MatchCard';
-import {useNavigation} from '@react-navigation/native';
-
-
+import {format} from 'date-fns'
 
 // const navigation = useNavigation();
 
 const width = Dimensions.get('screen').width
 
 
-const Matchs = ({ navigation,item }) => {
+const Matchs = ({ navigation }) => {
 
   const dispatch = useDispatch();
 
-  const { data } = useSelector(state => state.Matchs.data)
+  const  data  = useSelector(state => state.matchs)
 
 
   useEffect(() => {
     dispatch(getAllMatchsThunk())
   }, [dispatch])
 
-
+  
 
   const handleShowDetails = (item) => {
     navigation.navigate('detail', { item })
@@ -35,15 +33,14 @@ const Matchs = ({ navigation,item }) => {
 
     <ScrollView horizontal={true}>
       {data?.map((match, index) => (
-        <TouchableOpacity  onPress={() => handleShowDetails(match)}>
-          <View key={index}  style={styles.container}>
+        <TouchableOpacity key={index}  onPress={() => handleShowDetails(match)}>
+          <View   style={styles.container}>
 
             <View style={styles.phase_one}>
-              <MatchCard />
+              <MatchCard homeId={match.homeTeam.id} awayId={match.awayTeam.id} score1={match.homeScore.normaltime} score2={match.awayScore.normaltime}/>
 
-              <Text style={styles.date}>{match.starting_at} </Text>
+              <Text style={styles.date}>{format(new Date(match.startTimestamp), 'HH:mm')} </Text>
             </View>
-
 
             <View style={styles.phase_two}>
               <Text style={styles.Number}>28</Text>

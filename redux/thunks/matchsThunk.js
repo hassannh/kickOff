@@ -5,17 +5,19 @@ import {getAllMatches} from '../Actions/MatchActions'
 
 
 const getAllMatchsThunk = () => async (dispatch) => {
+
+
     try {
-        const authToken = 'N3eCJzEkfseIrVV0Ec7zohovsV6coLCqYEUdVR1Cbq1L33fwwhk83mzqqLmX';
+        // const authToken = 'N3eCJzEkfseIrVV0Ec7zohovsV6coLCqYEUdVR1Cbq1L33fwwhk83mzqqLmX';
+
+        
+        const response = await axios.get("https://api.sofascore.com/api/v1/sport/football/scheduled-events/2024-02-22")
+
+        // console.log('dataaaaaaaaaa :',response.data);
 
 
-        const response = await axios.get("https://api.sportmonks.com/v3/football/fixtures",{
-            headers: {
-                Authorization : authToken,
-            },
-        })
+        /** @type {SofascoreResponse} */
 
-        console.log('data :',response.data);
         const data = response.data;
 
         if (data) {

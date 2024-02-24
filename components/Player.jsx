@@ -14,16 +14,17 @@ const Player = ({ data }) => {
             {data?.map((player, index) => (
                 <View key={index} style={styles.container}>
 
-                    <View style={styles.player}>
+                    <View >
                         <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.player}>
 
                             <View style={styles.ImageContainer}>
-                                <Image style={styles.Image} source={{ uri: player.image_path }} />
+                                <Image style={styles.Image} source={{ uri: player.player_picture }} />
                             </View>
                             <View>
-                                <Text>{player.name}</Text>
-                                <Text>{player.height}</Text>
-                                <Text>{player.weight}</Text>
+                                <Text>{player.player_name}</Text>
+                                <Text>Contry :{player.country_name}</Text>
+                                <Text>Power :{player.sci_skill_smg}</Text>
+                                <Text>Team :{player.team_name}</Text>
                             </View>
 
                         </LinearGradient>
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        backgroundColor: 'white',
         marginTop: 25,
         marginLeft: 35,
     },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         border: 1,
     },
-   
+
 })
 
 export default Player

@@ -11,9 +11,10 @@ export default function Players() {
 
     const dispatch = useDispatch();
     const [searchQuery, setSearchQuery] = useState('');
-    const { data } = useSelector((state) => state.Players.data);
+    const  data  = useSelector((state) => state.players);
 
 
+    // console.log('players :',data);
 
     useEffect(() => {
         dispatch(getAllPlayersThunk());
@@ -21,23 +22,16 @@ export default function Players() {
 
 
     const filteredData = data.filter((player) =>
-        player.name.toLowerCase().includes(searchQuery.toLowerCase())
+        player.player_name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (
 
         <>
-            {/* <View style={{ backgroundColor: '#1F1D2B' }}> */}
             <ScrollView style={{ backgroundColor: '#1F1D2B' }}>
                 <SearchInput setSearchQuery={setSearchQuery} />
-
-
                 <Player data={filteredData} />
-
             </ScrollView>
-
-
-            {/* </View> */}
 
 
         </>
