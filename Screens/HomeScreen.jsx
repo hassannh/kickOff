@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import Matchs from '../components/Matchs';
 import Cover from '../components/Cover';
-import BestTeams from '../components/BestPlayers';
+import BestPlayers from '../components/BestPlayers';
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -16,9 +16,13 @@ const HomeScreen = ({navigation}) => {
         <Text style={{marginLeft:10,marginTop:30,fontSize: 20 ,color:'white'}}>Popular Players</Text>
         
         <View>
-          <BestTeams />
+          <BestPlayers />
         </View>
         <Text style={{marginLeft:10,marginTop:12,fontSize: 20 ,color:'white'}}>UpComing Matches</Text>
+
+        {/* <TouchableOpacity style={{ backgroundColor: 'white', padding: 10, borderRadius: 5 }}>
+        <Text>FILTER</Text>
+        </TouchableOpacity> */}
 
         <View style={{marginBottom:60}}>
 

@@ -1,31 +1,31 @@
-import {GET_ALL_MATCHS,GET_ALL_PLAYERS} from '../types'
+import {GET_ALL_MATCHS  , ADD_TO_FAVORITS} from '../types'
 
 
 const initialState = {
     matchs: [],
-    players:[],
+    favorits: [],
     error: null,
   };
   
-  const Reducer = (state = initialState, action) => {
+  const MatchReducer = (state = initialState, action) => {
     switch (action.type) {
       case GET_ALL_MATCHS:
         return {
           ...state,
           matchs: action.payload,
-          error: null,
+          error: null
         };
        
-      case GET_ALL_PLAYERS:
-            return {
-              ...state,
-              players: action.payload,
-              error: null,
-            };
+      case ADD_TO_FAVORITS:
+        return{
+          ...state,
+          favorits : action.payload,
+          error:null
+        }
         
       default:
         return state;
     }
   };
   
-  export default Reducer;
+  export default MatchReducer;

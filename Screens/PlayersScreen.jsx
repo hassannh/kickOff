@@ -11,10 +11,8 @@ export default function Players() {
 
     const dispatch = useDispatch();
     const [searchQuery, setSearchQuery] = useState('');
-    const  data  = useSelector((state) => state.players);
+    const  data  = useSelector(state => state.players.players);
 
-
-    // console.log('players :',data);
 
     useEffect(() => {
         dispatch(getAllPlayersThunk());

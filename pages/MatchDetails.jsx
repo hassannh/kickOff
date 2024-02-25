@@ -10,7 +10,7 @@ const MatchDetails = ({ route }) => {
 
   const { item } = route.params;
 
-  console.log(item);
+  // console.log(item);
 
 
   return (
@@ -29,10 +29,7 @@ const MatchDetails = ({ route }) => {
           <TouchableOpacity>
             <FontAwesome name="heart" size={44} color="black" />
           </TouchableOpacity>
-
         </View>
-
-
       </View>
 
     </>

@@ -37,13 +37,15 @@ const styles = StyleSheet.create({
         height: 200,
         width: 360,
         marginTop: 24,
-        backgroundColor: '#1F1D2B'     },
+        backgroundColor: '#1F1D2B'
+    },
     Image: {
         width: 173,
         height: 173,
         borderRadius: 50,
         backgroundColor: 'white',
-        marginTop:12
+        zIndex:1222,
+        marginTop:110
     },
     info: {
         display: 'flex',

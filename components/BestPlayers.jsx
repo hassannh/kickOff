@@ -6,13 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-
-
 const BestPlayers = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
-    const data = useSelector(state => state.players)
+    const data = useSelector((state) => state.players.players)
+
+    // const player = data.players
+    // console.log('match dataaa',data);
 
 
     useEffect(() => {

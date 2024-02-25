@@ -1,4 +1,4 @@
-import { GET_ALL_MATCHS,GET_ALL_PLAYERS} from '../types';
+import { GET_ALL_MATCHS , ADD_TO_FAVORITS} from '../types';
 
 
 
@@ -8,9 +8,7 @@ export const getAllMatches = (data) => ({
   payload: data.events,
 });
 
-
-export const getAllPlayers = (data) => ({
-  type: GET_ALL_PLAYERS,
-  payload: data.records,
+export const addToFavorits = (data) => ({
+  type: ADD_TO_FAVORITS,
+  payload: data,
 });
- 

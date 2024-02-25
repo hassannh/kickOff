@@ -14,8 +14,6 @@ const initialState = {
           players: action.payload,
           error: null,
         };
-        
-          
       default:
         return state;
     }
