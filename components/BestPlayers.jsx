@@ -28,9 +28,10 @@ const BestPlayers = () => {
 
     return (
         <ScrollView horizontal={true}>
-            {data?.map((player, index) => (
-                <TouchableOpacity onPress={() => handleShowDetails(player)}>
-                    <View key={index} style={styles.BestTeams}>
+            {Array.isArray(data) && 
+            data?.map((player, index) => (
+                <TouchableOpacity key={index} onPress={() => handleShowDetails(player)}>
+                    <View  style={styles.BestTeams}>
                         <Image style={styles.Image} source={{ uri: player.player_picture }} />
                     </View>
                 </TouchableOpacity>

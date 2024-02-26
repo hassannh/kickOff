@@ -5,3 +5,5 @@ export const GET_ALL_MATCHS = 'GET_ALL_MATCHS';
 export const GET_ALL_PLAYERS = 'GET_ALL_PLAYERS'
 
 export const ADD_TO_FAVORITS = 'GET_ALL_PLAYERS'
+
+export const CLEAR_FAVORITS = 'CLEAR_FAVORITS';

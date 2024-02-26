@@ -5,8 +5,6 @@ import getAllMatchsThunk from '../redux/thunks/matchsThunk';
 import MatchCard from './MatchCard';
 import { format } from 'date-fns'
 import ModalSelector from 'react-native-modal-selector';
-import { debounce } from 'lodash';
-
 
 
 
@@ -26,9 +24,9 @@ const Matchs = ({ navigation }) => {
 
   useEffect(() => {
     dispatch(getAllMatchsThunk())
-  }, [dispatch])
-
-
+  },
+   [dispatch]
+   )
 
   const handleShowDetails = (item) => {
     navigation.navigate('detail', { item })
@@ -70,7 +68,8 @@ const Matchs = ({ navigation }) => {
 
 
       <ScrollView horizontal={true}>
-        {filteredMatches.map((match, index) => (
+        {Array.isArray(filteredMatches) && 
+        filteredMatches.map((match, index) => (
           <TouchableOpacity key={index} onPress={() => handleShowDetails(match)}>
             <View style={styles.container}>
 
@@ -122,7 +121,6 @@ const styles = StyleSheet.create({
   },
   horizontalName: {
     color: 'white',
-    fontFamily: 'BebasNeue-Bold',
     fontSize: 20,
     transform: [{ rotate: '90deg' }],
     marginTop: 30

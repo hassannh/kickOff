@@ -17,8 +17,9 @@ const Player = ({ data }) => {
     }
 
     return (
-        <View >
-            {data?.map((player, index) => (
+        <View>
+            {Array.isArray(data) && 
+            data?.map((player, index) => (
                 <View key={index} style={styles.container}>
 
                     <TouchableOpacity onPress={() => handleShowDetails(player)}>
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 25,
-        marginLeft: 35,
     },
     Image: {
         width: 73,
@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     container: {
-
-        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         border: 1,
     },

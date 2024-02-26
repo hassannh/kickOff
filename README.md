@@ -1,39 +1,48 @@
-{
-  "name": "kickff",
-  "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "test": "jest",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  
-  "dependencies": {
+
+## Description
+This is kickOff mobile app using react native expo ,the user can display all matchs and all players and thier details and can add match to favorits and filter players by name.
+
+## Installation
+1. Clone this repository.
+2. Run `npm install` to install dependencies.
+
+
+## Getting Started
+
+
+To start the React native app, run the following command to run it:
+
+```bash
+npx expo start
+```
+
+### Scripts
+
+- npx expo start: Starts the project.
+- npm test: run tests.
+- docker build : for windows users to create docker image
+- sudo docker build : for linux users to create docker image
+
+## Dependencies
+
+
+# expo :
+
+
+ "dependencies": {
     "@expo/vector-icons": "^14.0.0",
-    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-native-community/viewpager": "^5.0.11",
     "@react-navigation/bottom-tabs": "^6.5.12",
-    "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "@types/react": "~18.2.45",
     "axios": "^1.6.7",
     "date-fns": "^3.3.1",
     "expo": "~50.0.6",
-    "expo-camera": "^14.0.4",
-    "expo-image-picker": "^14.7.1",
     "expo-linear-gradient": "~12.7.2",
-    "expo-media-library": "^15.9.1",
-    "expo-sharing": "^11.10.0",
     "expo-status-bar": "~1.11.1",
-    "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-native": "0.73.2",
-    "react-native-camera": "^4.2.1",
-    "react-native-image-crop-picker": "^0.40.2",
-    "react-native-image-picker": "^2.3.4",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-modal-selector": "^2.1.2",
     "react-native-paper": "^5.12.3",
@@ -45,6 +54,8 @@
     "redux-thunk": "^3.1.0",
     "typescript": "^5.3.0"
   },
+
+
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@testing-library/jest-native": "^5.4.3",
@@ -52,5 +63,3 @@
     "jest": "^29.7.0",
     "react-test-renderer": "^18.2.0"
   },
-  "private": true
-}

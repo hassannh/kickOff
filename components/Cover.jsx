@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     linearGradient: {
       flex: 1,
       borderRadius: 10,
-    
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',

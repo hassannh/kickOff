@@ -9,14 +9,10 @@ FROM node:14-alpine
 WORKDIR /app
 
 
-# Copy the entire app directory to the working directory
 COPY . .
 
-# Install app dependencies
 RUN npm install
 
-# Expose port 8081 for the React Native packager
 EXPOSE 8081
 
-# Start the app
 CMD ["npx", "expo", "start"]

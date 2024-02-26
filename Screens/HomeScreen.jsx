@@ -20,9 +20,6 @@ const HomeScreen = ({navigation}) => {
         </View>
         <Text style={{marginLeft:10,marginTop:12,fontSize: 20 ,color:'white'}}>UpComing Matches</Text>
 
-        {/* <TouchableOpacity style={{ backgroundColor: 'white', padding: 10, borderRadius: 5 }}>
-        <Text>FILTER</Text>
-        </TouchableOpacity> */}
 
         <View style={{marginBottom:60}}>
 

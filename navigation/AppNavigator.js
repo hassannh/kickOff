@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../Screens/HomeScreen';
 import SettingsScreen from '../Screens/SettingScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
+import FavoritsScreen from '../Screens/FavoritsScreen';
 import PlayersScreen from '../Screens/PlayersScreen';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MatchDetails from '../pages/MatchDetails';
@@ -22,15 +22,11 @@ const AppNavigator = () => (
                 height: 70,
                 paddingHorizontal: 5,
                 backgroundColor: '#252836',
-
+                showLabel: false,
+                activeTintColor: 'red', 
+                inactiveTintColor: 'gray',
             },
         })}
-        tabBarOptions={{
-            showLabel: false,
-            activeTintColor: 'red', 
-            inactiveTintColor: 'gray',
-
-        }}
 
     >
         <Tab.Screen name="Home" component={HomeScreen}
@@ -53,7 +49,7 @@ const AppNavigator = () => (
                 )
             }}
         />
-        <Tab.Screen name="favorite" component={ProfileScreen}
+        <Tab.Screen name="favorite" component={FavoritsScreen}
             options={{
                 tabBarIcon: ({ color, size ,focused}) => (
                     <Icon name="favorite" size={40} color={focused ? '#6C5ECF' : '#464857'} />
